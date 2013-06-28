@@ -760,27 +760,6 @@ public class DarumaDeveloperAsync implements OnDarumaMobileListener {
         }
 
     }
-	
-	 /**
-     * Este método retorna o número de série da impressora. 
-     * @param separador se for “0” não utilizar separador ou seja, retornar informação sem separar 
-     */
-    public void rRetornarNumeroSerie_ECF_DarumaAsync(String separador)
-    {
-        int cod = 200;
-
-        DMF_UTIL_Valida(separador, 1, TipoDadoDaruma.Alfanumerico);
-        indice = DMF_UTIL_Valida("78", 3, TipoDadoDaruma.Numerico);
-
-        for (String i : indice.split("\\+"))
-        {
-            String param = i;
-            
-    		filaMetodos.add(MetodoExecutando.rRetornarInformacao_ECF_DarumaAsync);
-            darumaMobile.enviarComando_FS_R_Async(String.valueOf(cod) + param);
-        }
-
-    }
     
     /** Método que possibilita envio de texto a serem impressos, permitindo formatação do mesmo, através das tags listadas mais abaixo, que chamamos de D-HTML, por ser semelhante à programação HTML.
     	Com o uso deste método é possível enviar impressões linha a linha ou em blocos de linhas (buffer) de acordo com sua necessidade.
